@@ -1,4 +1,5 @@
 import { createClient } from "contentful";
+import { FormattedDate } from "../components/FormattedDate";
 
 interface Metadata {
   tags: string[];
@@ -47,13 +48,28 @@ export default async function Home() {
   console.log(data);
 
   return (
-    <main className="text-center p-24">
-      <div>SM Chopra</div>
-      {data.map((post) => (
-        <div key={post.sys.id}>
-          <p>{post.fields.description}</p>
+    <main className="p-20">
+      <h1 className="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white text-center py-10">
+        Sham Mohan{" "}
+        <span className="text-blue-600 dark:text-blue-500">Chopra</span>
+      </h1>
+      <div className="container mx-auto px-4 py-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-9">
+          {data.map((post) => (
+            <div key={post.sys.id}>
+              <h2 className="mb-4 text-2xl font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-4xl dark:text-white">
+                {post.fields.title}
+              </h2>
+              <p className="text-sm text-gray-400 py-2">
+                <FormattedDate date={post.fields.date} />
+              </p>
+              <p className="text-lg font-normal text-gray-500 lg:text-xl dark:text-gray-200 text-left">
+                {post.fields.description}
+              </p>
+            </div>
+          ))}
         </div>
-      ))}
+      </div>
     </main>
   );
 }
