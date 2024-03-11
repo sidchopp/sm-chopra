@@ -17,6 +17,11 @@ export async function generateStaticParams() {
 
 export default async function BlogPage({ params }) {
   const blog = await getBlog(params?.slug);
+
+  if (!blog) {
+    notFound();
+  }
+
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <section className="w-full">
