@@ -19,7 +19,8 @@ export default async function Home() {
               Chopra
             </h1>
             <p className="pb-6 text-lg lg:text-xl font-normal text-gray-500 sm:px-16 xl:px-48 dark:text-gray-400">
-              "The purpose of our lives is to be happy." - Dalai Lama
+              Love spinning tales. Take a stroll through my written wonders.
+              Hope you enjoy the ride!
             </p>
             <a
               href="/about"
