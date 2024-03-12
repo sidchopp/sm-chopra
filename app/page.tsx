@@ -1,36 +1,8 @@
-import { createClient } from "contentful";
-import { getAllBlogs } from "@/lib/api";
-import { FormattedDate } from "@/components/FormattedDate";
 import Link from "next/link";
 import Image from "next/image";
-
-interface Metadata {
-  tags: string[];
-}
-
-interface Sys {
-  space: Record<string, unknown>[];
-  id: string;
-  type: string;
-  createdAt: string;
-  updatedAt: string;
-  environment: Record<string, unknown>[];
-  revision: number;
-  contentType: Record<string, unknown>[];
-  locale: string;
-}
-
-interface Fields {
-  title: string;
-  date: string;
-  description: string;
-}
-
-interface DataType {
-  metadata: Metadata;
-  sys: Sys;
-  fields: Fields;
-}
+import { getAllBlogs } from "@/lib/api";
+import { FormattedDate } from "@/components/FormattedDate";
+import { Blog } from "./types/types";
 
 export default async function Home() {
   const blogs = await getAllBlogs();
@@ -49,7 +21,7 @@ export default async function Home() {
           </div>
           <div className="space-y-12">
             <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-              {blogs.map((blog) => (
+              {blogs.map((blog: Blog) => (
                 <article
                   key={blog.sys.id}
                   className="h-full flex flex-col rounded-lg shadow-lg overflow-hidden bg-gray-900"
@@ -61,16 +33,14 @@ export default async function Home() {
                     src={blog?.image?.url}
                     width="350"
                   />
-                  <div className="flex-1 p-6">
-                    <Link href={`/blogs/${blog?.slug}`}>
-                      <h3 className="text-2xl font-bold leading-tight text-zinc-900 dark:text-zinc-50  py-4">
-                        {blog?.title}
-                      </h3>
-                    </Link>
+                  <div className="flex-1 flex flex-col p-6">
+                    <h3 className="font-bold leading-tight text-zinc-900 dark:text-zinc-50 py-4 text-xl md:text-2xl lg:text-3xl">
+                      {blog?.title}
+                    </h3>
                     <p className="text-sm text-gray-400 pb-2">
                       <FormattedDate date={blog?.date} />
                     </p>
-                    <p className="text-lg font-normal text-gray-500 lg:text-xl dark:text-gray-200 text-left">
+                    <p className="text-lg md:text-xl font-normal text-gray-500 lg:text-xl dark:text-gray-200 text-left flex-1">
                       {blog?.subTitle}
                     </p>
                     <div className="flex justify-start">
