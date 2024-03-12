@@ -11,13 +11,37 @@ export default async function Home() {
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <section className="w-full pt-12">
         <div className="mx-auto container space-y-12 px-4 md:px-6">
-          <div className="flex flex-col items-center justify-center space-y-4 text-center">
-            <div className="space-y-2">
-              <h1 className="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white text-center py-10">
+          <div className="flex flex-col items-center justify-center  text-center">
+            <h1 className="mb-4 font-extrabold leading-none tracking-tight text-gray-900 text-4xl md:text-5xl lg:text-7xl dark:text-white text-center py-4">
+              <span className="text-blue-600 dark:text-blue-500">
                 Sham Mohan{" "}
-                <span className="text-blue-600 dark:text-blue-500">Chopra</span>
-              </h1>
-            </div>
+              </span>
+              Chopra
+            </h1>
+            <p className="pb-6 text-lg lg:text-xl font-normal text-gray-500 sm:px-16 xl:px-48 dark:text-gray-400">
+              "The purpose of our lives is to be happy." - Dalai Lama
+            </p>
+            <a
+              href="/about"
+              className="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-white bg-blue-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900"
+            >
+              About me
+              <svg
+                className="w-3.5 h-3.5 ms-2 rtl:rotate-180"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 14 10"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M1 5h12m0 0L9 1m4 4L9 9"
+                />
+              </svg>
+            </a>
           </div>
           <div className="space-y-12">
             <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
