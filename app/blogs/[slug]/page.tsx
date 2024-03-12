@@ -24,7 +24,7 @@ export default async function BlogPage({ params }: ParamsWithSlug) {
   }
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+    <main className="flex min-h-screen flex-col items-center justify-between py-24 px-4 md:px-8">
       <section className="w-full">
         <div className="container space-y-12 px-4 md:px-6">
           <article
@@ -38,6 +38,12 @@ export default async function BlogPage({ params }: ParamsWithSlug) {
               {blog?.description}
             </p>
           </article>
+          <a
+            href="/"
+            className="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-white bg-blue-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900"
+          >
+            Back
+          </a>
         </div>
       </section>
     </main>

@@ -8,11 +8,11 @@ export default async function Home() {
   const blogs = await getAllBlogs();
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+    <main className="flex min-h-screen flex-col items-center justify-between py-24 px-4 md:px-8">
       <section className="w-full pt-12">
         <div className="mx-auto container space-y-12 px-4 md:px-6">
           <div className="flex flex-col items-center justify-center  text-center">
-            <h1 className="mb-4 font-extrabold leading-none tracking-tight text-gray-900 text-4xl md:text-5xl lg:text-7xl dark:text-white text-center py-4">
+            <h1 className="mb-4 font-extrabold leading-none tracking-tight text-gray-900 text-5xl md:text-6xl lg:text-7xl dark:text-white text-center py-4">
               <span className="text-blue-600 dark:text-blue-500">
                 Sham Mohan{" "}
               </span>
