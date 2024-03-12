@@ -52,7 +52,7 @@ export default async function Home() {
               {blogs.map((blog) => (
                 <article
                   key={blog.sys.id}
-                  className="h-full flex flex-col rounded-lg shadow-lg overflow-hidden"
+                  className="h-full flex flex-col rounded-lg shadow-lg overflow-hidden bg-gray-900"
                 >
                   <Image
                     alt="placeholder"
