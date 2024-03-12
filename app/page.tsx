@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import Head from "next/head";
 import { getAllBlogs } from "@/lib/api";
 import { FormattedDate } from "@/components/FormattedDate";
 import { Blog } from "./types/types";
@@ -9,6 +10,9 @@ export default async function Home() {
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between py-24 px-4 md:px-8">
+      <Head>
+        <title>Sham Mohan Chopra</title>
+      </Head>
       <section className="w-full pt-12">
         <div className="mx-auto container space-y-12 px-4 md:px-6">
           <div className="flex flex-col items-center justify-center  text-center">
@@ -44,43 +48,45 @@ export default async function Home() {
               </svg>
             </a>
           </div>
-          <div className="space-y-12">
-            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-              {blogs.map((blog: Blog) => (
-                <article
-                  key={blog.sys.id}
-                  className="h-full flex flex-col rounded-lg shadow-lg overflow-hidden bg-gray-200 dark:bg-gray-900"
-                >
-                  <Image
-                    alt="placeholder"
-                    className="aspect-[4/3] object-cover w-full"
-                    height="263"
-                    src={blog?.image?.url}
-                    width="350"
-                  />
-                  <div className="flex-1 flex flex-col p-6">
-                    <h3 className="font-bold leading-tight text-zinc-900 dark:text-zinc-50 py-4 text-xl md:text-2xl lg:text-3xl">
-                      {blog?.title}
-                    </h3>
-                    <p className="text-sm text-gray-500 pb-2">
-                      <FormattedDate date={blog?.date} />
-                    </p>
-                    <p className="text-lg md:text-xl font-normal lg:text-xl text-gray-600 dark:text-gray-200 text-left flex-1">
-                      {blog?.subTitle}
-                    </p>
-                    <div className="flex justify-start">
-                      <Link
-                        className="inline-flex h-10 items-center justify-center text-sm font-medium text-gray-700 dark:text-gray-200"
-                        href={`/blogs/${blog?.slug}`}
-                      >
-                        Read More →
-                      </Link>
+          {blogs && (
+            <div className="space-y-12">
+              <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                {blogs.map((blog: Blog) => (
+                  <article
+                    key={blog.sys.id}
+                    className="h-full flex flex-col rounded-lg shadow-lg overflow-hidden bg-gray-200 dark:bg-gray-900"
+                  >
+                    <Image
+                      alt="placeholder"
+                      className="aspect-[4/3] object-cover w-full"
+                      height="263"
+                      src={blog?.image?.url}
+                      width="350"
+                    />
+                    <div className="flex-1 flex flex-col p-6">
+                      <h3 className="font-bold leading-tight text-zinc-900 dark:text-zinc-50 py-4 text-xl md:text-2xl lg:text-3xl">
+                        {blog?.title}
+                      </h3>
+                      <p className="text-sm text-gray-500 pb-2">
+                        <FormattedDate date={blog?.date} />
+                      </p>
+                      <p className="text-lg md:text-xl font-normal lg:text-xl text-gray-600 dark:text-gray-200 text-left flex-1">
+                        {blog?.subTitle}
+                      </p>
+                      <div className="flex justify-start">
+                        <Link
+                          className="inline-flex h-10 items-center justify-center text-sm font-medium text-gray-700 dark:text-gray-200"
+                          href={`/blogs/${blog?.slug}`}
+                        >
+                          Read More →
+                        </Link>
+                      </div>
                     </div>
-                  </div>
-                </article>
-              ))}
+                  </article>
+                ))}
+              </div>
             </div>
-          </div>
+          )}
         </div>
       </section>
     </main>
