@@ -49,7 +49,7 @@ export default async function Home() {
               {blogs.map((blog: Blog) => (
                 <article
                   key={blog.sys.id}
-                  className="h-full flex flex-col rounded-lg shadow-lg overflow-hidden bg-gray-900"
+                  className="h-full flex flex-col rounded-lg shadow-lg overflow-hidden bg-gray-200 dark:bg-gray-900"
                 >
                   <Image
                     alt="placeholder"
@@ -62,15 +62,15 @@ export default async function Home() {
                     <h3 className="font-bold leading-tight text-zinc-900 dark:text-zinc-50 py-4 text-xl md:text-2xl lg:text-3xl">
                       {blog?.title}
                     </h3>
-                    <p className="text-sm text-gray-400 pb-2">
+                    <p className="text-sm text-gray-500 pb-2">
                       <FormattedDate date={blog?.date} />
                     </p>
-                    <p className="text-lg md:text-xl font-normal text-gray-500 lg:text-xl dark:text-gray-200 text-left flex-1">
+                    <p className="text-lg md:text-xl font-normal lg:text-xl text-gray-600 dark:text-gray-200 text-left flex-1">
                       {blog?.subTitle}
                     </p>
                     <div className="flex justify-start">
                       <Link
-                        className="inline-flex h-10 items-center justify-center text-sm font-medium"
+                        className="inline-flex h-10 items-center justify-center text-sm font-medium text-gray-700 dark:text-gray-200"
                         href={`/blogs/${blog?.slug}`}
                       >
                         Read More →
