@@ -10,9 +10,6 @@ export default async function Home() {
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between py-24 px-4 md:px-8">
-      <Head>
-        <title>Sham Mohan Chopra</title>
-      </Head>
       <section className="w-full pt-12">
         <div className="mx-auto container space-y-12 px-4 md:px-6">
           <div className="flex flex-col items-center justify-center  text-center">
