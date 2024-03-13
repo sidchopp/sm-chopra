@@ -1,6 +1,5 @@
 import Link from "next/link";
 import Image from "next/image";
-import Head from "next/head";
 import { getAllBlogs } from "@/lib/api";
 import { FormattedDate } from "@/components/FormattedDate";
 import { Blog } from "./types/types";
@@ -37,9 +36,9 @@ export default async function Home() {
               >
                 <path
                   stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
                   d="M1 5h12m0 0L9 1m4 4L9 9"
                 />
               </svg>
